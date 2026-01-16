@@ -1,3 +1,5 @@
+import { MongooseError } from "mongoose";
+
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -33,7 +35,9 @@ const MongoURI = `${process.env.MONGO_URI}${process.env.MONGO_DB}`;
 mongoose
   .connect(MongoURI)
   .then(() => console.log("Connected to MongoDB"))
-  .catch((err: Error) => console.error(`Error connecting to MongoDB: ${err}`));
+  .catch((err: MongooseError) =>
+    console.error(`Error connecting to MongoDB: ${err}`)
+  );
 
 //Use Routes
 app.use("/api/");

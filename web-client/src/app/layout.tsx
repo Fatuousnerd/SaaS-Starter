@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "./providers";
+import ThemeProvider from "@/contexts/themeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <PostHogProvider>{children}</PostHogProvider>
+        <PostHogProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </PostHogProvider>
         <Analytics />
         <SpeedInsights />
       </body>
