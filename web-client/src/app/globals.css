@@ -31,8 +31,17 @@ button {
   cursor: pointer;
 }
 
-.nobar::-webkit-scrollbar {
+.no-bar::-webkit-scrollbar {
   display: none;
+}
+
+html, body {
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 @media (prefers-color-scheme: dark) {
