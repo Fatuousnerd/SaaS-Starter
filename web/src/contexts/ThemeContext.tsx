@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, ReactNode, useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import Cookies from "../../node_modules/@types/js-cookie";
 
 interface ThemeType {
   theme: string;
